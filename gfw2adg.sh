@@ -50,8 +50,8 @@ if (white==0)
     {print("  - '\''[/"fin"/]tcp://208.67.220.220#5353'\''");}
 else{
     print("  - '\''[/"fin"/]#'\''");}
-}END{print("  # program add end")}' > /tmp/adguard.list
-sed -i '/# program add start/,/# program add end/'c'  \# program add start' /usr/bin/AdGuardHome/AdGuardHome.yaml
-sed -i '/# program add start/'r/tmp/adguard.list /usr/bin/AdGuardHome/AdGuardHome.yaml
+}END{print("  - '\''[/programaddend/]#'\''")}' > /tmp/adguard.list
+sed -i '/  - '\''[/programaddstart/]\#'\''/,/  - '\''[/programaddend/]\#'\''/'c'  - '\''[/programaddend/]\#'\''' /usr/bin/AdGuardHome/AdGuardHome.yaml
+sed -i '/  - '\''[/programaddend/]\#'\''/'r/tmp/adguard.list /usr/bin/AdGuardHome/AdGuardHome.yaml
 /etc/init.d/AdGuardHome restart
 rm -f /tmp/gfwlist.txt /tmp/adguard.list

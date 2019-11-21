@@ -3,7 +3,7 @@
 ### 用法
 编辑 /usr/bin/AdGuardHome/AdGuardHome.yaml 在upstream_dns: 下面的行中加入两行（没有反斜杠）<br>
 ```
-# program add start
-# program add end
+  - '\''[/programaddstart/]#'\''
+  - '\''[/programaddend/]#'\''
 ```
 使用contab定时运行gfw2adg.sh即可自动更新<br>
