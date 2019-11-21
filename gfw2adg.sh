@@ -52,7 +52,7 @@ if (white==0)
 else{
     print("  - '\''[/"fin"/]#'\''");}
 }END{print("  - '\''[/programaddend/]#'\''")}' > /tmp/adguard.list
-sed -i '/  - '\''[/programaddstart/]\#'\''/,/  - '\''[/programaddend/]\#'\''/'c'  - '\''[/programaddend/]\#'\''' /usr/bin/AdGuardHome/AdGuardHome.yaml
-sed -i '/  - '\''[/programaddend/]\#'\''/'r/tmp/adguard.list /usr/bin/AdGuardHome/AdGuardHome.yaml
+sed -i '/programaddstart/,/programaddend/c\  - '\''\[\/programaddstart\/\]#'\''' /usr/bin/AdGuardHome/AdGuardHome.yaml
+sed -i '/programaddstart/'r/tmp/adguard.list /usr/bin/AdGuardHome/AdGuardHome.yaml
 /etc/init.d/AdGuardHome restart
 rm -f /tmp/gfwlist.txt /tmp/adguard.list
