@@ -42,6 +42,7 @@ if (s1==".")
 {fin=substr($0,2);}
 else{fin=$0;}
 if (index(fin,".")==0) next;
+if (index(fin,"%")!=0) next;
 match(fin,"^[0-9\.]+")
 if (RSTART==1 && RLENGTH==length(fin)) {print "ipset add gfwlist "fin>"/tmp/doipset.sh";next;}
 if (fin=="" || finl==fin) next;
